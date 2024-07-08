@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Matcher</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background:
+    #efeb6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    background:rgb(190, 226, 43);
+    padding: 40px;
+    border-radius: 10px;
+    border-color: black;
+    border:black;
+    text-align: center;
+    width: 400px;
+    transition: transform 0.5s;
+    font-style: italic;
+}
+
+.container:hover {
+    transform: translateY(-15px);
+}
+
+.heading {
+    font-size: 2.5rem;
+    color:black;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.input-field {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin: 15px 0;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: 5px;
+    transition: border-color 0.3s;
+   
+    color:black;
+}
+
+.btn {
+   
+    color:black;
+    width: 160px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-color: black;
+    
+}
+
+.btn:hover {
+    background: #99ffff ;
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 30px;
+    font-size: 30px;
+    color:black;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="heading">Text Matcher</h1>
+        <textarea id="text1" class="text-field" placeholder="Enter First Text"></textarea>
+        <textarea id="text2" class="text-field" placeholder="Enter Second Text"></textarea>
+        <div class="result" id="result">Result: </div>
+        <br><br>
+        <button class="btn" type="button" onclick="checkMatch()">Check Match</button>
+        <button class="btn" type="button" onclick="resetMatch()">Reset</button>
+    
+    </div>
+    <script>
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const result = document.getElementById('result');
+
+        function checkMatch() {
+            if (text1.value === text2.value) {
+                result.innerText = 'Result: Texts Match!';
+                result.style.color = "green"
+            } else {
+                result.innerText = 'Result: Texts Do Not Match!';
+                 result.style.color = "red"
+            }
+        }
+
+        function resetMatch() {
+            text1.value = '';
+            text2.value = '';
+            result.innerText = 'Result: ';
+        }
+    </script>
+    
+</body>
+</html>
