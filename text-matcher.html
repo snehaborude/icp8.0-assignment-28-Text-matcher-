@@ -3,109 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ext matcher</title>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f0f4f8;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
-    .app-container {
-        text-align: center;
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
-        width: 100%;
-    }
-    
-    .heading1 {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 20px;
-    }
-    
-    .text-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .input-text {
-        padding: 10px;
-        font-size: 1rem;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        transition: border-color 0.3s;
-    }
-    
-    .input-text:focus {
-        border-color: #007bff;
-        outline: none;
-    }
-    
-    .btn{
-        height: 30px;
-        width: 100px;
-        margin: 20px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        transition: border-color 0.3s;
-    }
-    
-    .match-result {
-        font-size: 1.5rem;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-    
-    
-        </style>
+    <title>Text Matcher</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+body {
+    font-family: 'Montserrat', sans-serif;
+    background:
+    #efeb6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
 
+.container {
+    background:rgb(190, 226, 43);
+    padding: 40px;
+    border-radius: 10px;
+    border-color: black;
+    border:black;
+    text-align: center;
+    width: 400px;
+    transition: transform 0.5s;
+    font-style: italic;
+}
+
+.container:hover {
+    transform: translateY(-15px);
+}
+
+.heading {
+    font-size: 2.5rem;
+    color:black;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.input-field {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin: 15px 0;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: 5px;
+    transition: border-color 0.3s;
+   
+    color:black;
+}
+
+.btn {
+   
+    color:black;
+    width: 160px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-color: black;
+    
+}
+
+.btn:hover {
+    background: #99ffff ;
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 30px;
+    font-size: 30px;
+    color:black;
+}
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        @@ -15,10 +16,14 @@ <h1 class="heading1">String Comparator</h1>
-                </div>
-        
-                <p class="match-result" id="match-result-text"></p>
-        
-                <button class="btn" id="check-btn" onclick="Check()">Check</button>
-                <button class="btn" id="clear-btn" onclick="Clear()">Clear</button>
-        
-            </div>
-            <script>
-                function compareText() {
-                function Check() {
-                    const input1Ele = document.getElementById("input1")
-                    const input2Ele = document.getElementById("input2")
-        
-        @@ -31,8 +36,18 @@ <h1 class="heading1">String Comparator</h1>
-                    else{
-                        resultEle.innerText = "Not Matched!!"
-                        resultEle.style.color = "red"
-                    }
-        
-                    }            
-                }
-        
-                function Clear() {
-                    const input1Ele = document.getElementById("input1")
-                    input1Ele.value= ""
-        
-                    const input2Ele = document.getElementById("input2")
-                    input2Ele.value= ""
-        
-                    const resultEle = document.getElementById("match-result-text")
-                    resultEle.innerText= ""
-                }
-            </script>   
+
+    <div class="container">
+        <h1 class="heading">Text Matcher</h1>
+        <textarea id="text1" class="text-field" placeholder="Enter First Text"></textarea>
+        <textarea id="text2" class="text-field" placeholder="Enter Second Text"></textarea>
+        <div class="result" id="result">Result: </div>
+        <br><br>
+        <button class="btn" type="button" onclick="checkMatch()">Check Match</button>
+        <button class="btn" type="button" onclick="resetMatch()">Reset</button>
+    
+    </div>
+    <script>
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const result = document.getElementById('result');
+
+        function checkMatch() {
+            if (text1.value === text2.value) {
+                result.innerText = 'Result: Texts Match!';
+                result.style.color = "green"
+            } else {
+                result.innerText = 'Result: Texts Do Not Match!';
+                 result.style.color = "red"
+            }
+        }
+
+        function resetMatch() {
+            text1.value = '';
+            text2.value = '';
+            result.innerText = 'Result: ';
+        }
+    </script>
+    
 </body>
 </html>
