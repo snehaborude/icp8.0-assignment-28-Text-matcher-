@@ -4,6 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ext matcher</title>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .app-container {
+        text-align: center;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    .heading1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .input-text {
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+    
+    .input-text:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+    
+    .btn{
+        height: 30px;
+        width: 100px;
+        margin: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+    
+    .match-result {
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    
+    
+        </style>
+
+
 </head>
 <body>
     <div class="app-container">
@@ -16,5 +81,31 @@
                 <button class="btn" id="clear-btn" onclick="Clear()">Clear</button>
         
             </div>
+            <script>
+                function compareText() {
+                function Check() {
+                    const input1Ele = document.getElementById("input1")
+                    const input2Ele = document.getElementById("input2")
+        
+        @@ -31,8 +36,18 @@ <h1 class="heading1">String Comparator</h1>
+                    else{
+                        resultEle.innerText = "Not Matched!!"
+                        resultEle.style.color = "red"
+                    }
+        
+                    }            
+                }
+        
+                function Clear() {
+                    const input1Ele = document.getElementById("input1")
+                    input1Ele.value= ""
+        
+                    const input2Ele = document.getElementById("input2")
+                    input2Ele.value= ""
+        
+                    const resultEle = document.getElementById("match-result-text")
+                    resultEle.innerText= ""
+                }
+            </script>   
 </body>
 </html>
